@@ -212,6 +212,7 @@ public class Login extends javax.swing.JFrame {
                             dispose();
                             int id_akun = rs.getInt("id_akun");
                             UserMenu UM = new UserMenu(id_akun, username);
+                            UM.setVisible(true);
                         }
                     } else {
                         JOptionPane.showMessageDialog(null, "Login Gagal: Nama pengguna atau kata sandi salah.");

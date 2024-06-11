@@ -12,14 +12,14 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class AminMenu_RiwayatReservasi extends javax.swing.JFrame {
+public class AdminMenu_RiwayatReservasi extends javax.swing.JFrame {
     private String user;
     public  Integer id_akun;
     public String first_name, last_name, email, room_type, phone, address, city, formattedCheckIn, formattedCheckOut;
     public Integer adult, children, rsv;
     public LocalDate rsv_date;
     
-    public AminMenu_RiwayatReservasi() {
+    public AdminMenu_RiwayatReservasi() {
         initComponents();
         loadDataToTable();
     }
@@ -40,9 +40,7 @@ public class AminMenu_RiwayatReservasi extends javax.swing.JFrame {
         tbRsvHistory = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(950, 610));
         setMinimumSize(new java.awt.Dimension(950, 610));
-        setPreferredSize(new java.awt.Dimension(950, 610));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelKamar.setBackground(new java.awt.Color(0, 51, 102));
@@ -298,7 +296,7 @@ public class AminMenu_RiwayatReservasi extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new AminMenu_RiwayatReservasi().setVisible(true);
+                new AdminMenu_RiwayatReservasi().setVisible(true);
             }
         });
     }

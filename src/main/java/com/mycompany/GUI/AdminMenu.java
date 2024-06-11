@@ -271,8 +271,8 @@ public class AdminMenu extends javax.swing.JFrame {
 
     private void btnRiwayatRsvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRiwayatRsvMouseClicked
         dispose();
-//        AdminMenu_RiwayatReservasi AMRR = new AdminMenu_RiwayatReservasi();
-//        AMRR.setVisible(true);
+        AdminMenu_RiwayatReservasi AMRR = new AdminMenu_RiwayatReservasi();
+        AMRR.setVisible(true);
     }//GEN-LAST:event_btnRiwayatRsvMouseClicked
 
     private void btnRiwayatRsvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRiwayatRsvActionPerformed

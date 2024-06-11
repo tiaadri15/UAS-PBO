@@ -218,9 +218,9 @@ public class AdminMenu_KelolaAkun extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDataAkunMouseClicked
 
     private void btnRiwayatRsvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRiwayatRsvMouseClicked
-//        dispose();
-//        AdminMenu_RiwayatReservasi AMRR = new AdminMenu_RiwayatReservasi();
-//        AMRR.setVisible(true);
+        dispose();
+        AdminMenu_RiwayatReservasi AMRR = new AdminMenu_RiwayatReservasi();
+        AMRR.setVisible(true);
     }//GEN-LAST:event_btnRiwayatRsvMouseClicked
 
     private void btnRiwayatRsvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRiwayatRsvActionPerformed
