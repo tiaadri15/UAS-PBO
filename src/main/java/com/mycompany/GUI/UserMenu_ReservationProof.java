@@ -15,7 +15,6 @@ public class UserMenu_ReservationProof extends javax.swing.JFrame {
         
         initComponents();
         this.id_akun = id_akun;
-        lbIdAkun.setText(id_akun.toString());
         
         this.id_akun = id_akun;
         this.first_name = first_name;
@@ -72,7 +71,6 @@ public class UserMenu_ReservationProof extends javax.swing.JFrame {
         lbBooking3 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        lbIdAkun = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -252,12 +250,6 @@ public class UserMenu_ReservationProof extends javax.swing.JFrame {
         jPanel1.add(jLabel15);
         jLabel15.setBounds(40, 500, 210, 17);
 
-        lbIdAkun.setFont(new java.awt.Font("Garamond", 0, 14)); // NOI18N
-        lbIdAkun.setForeground(new java.awt.Color(245, 245, 245));
-        lbIdAkun.setText("id_akun");
-        jPanel1.add(lbIdAkun);
-        lbIdAkun.setBounds(470, 240, 70, 17);
-
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 650));
 
         pack();
@@ -297,7 +289,6 @@ public class UserMenu_ReservationProof extends javax.swing.JFrame {
     private javax.swing.JLabel lbCheckOutDate;
     private javax.swing.JLabel lbEmail;
     private javax.swing.JLabel lbGuest;
-    private javax.swing.JLabel lbIdAkun;
     private javax.swing.JLabel lbNama;
     private javax.swing.JLabel lbNama4;
     private javax.swing.JLabel lbPhone;

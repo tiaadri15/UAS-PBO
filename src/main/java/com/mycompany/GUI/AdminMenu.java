@@ -1,7 +1,15 @@
 package com.mycompany.GUI;
 
+import com.mycompany.tugas_uas.DatabaseConnection;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class AdminMenu extends javax.swing.JFrame {
     private String user;
@@ -14,10 +22,15 @@ public class AdminMenu extends javax.swing.JFrame {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE, d MMMM yyyy");
     String formattedDate = tanggal.format(formatter);
     
-    public AdminMenu() {
+    PreparedStatement pst;
+    Connection conn  = DatabaseConnection.configDB();
+    
+    public AdminMenu() throws SQLException {
         initComponents();
         this.tanggal = tanggal;
         lbTanggal.setText(formattedDate);
+        getJumlahPengguna();
+        getJumlahReservasi();
     }
 
     @SuppressWarnings("unchecked")
@@ -288,38 +301,45 @@ public class AdminMenu extends javax.swing.JFrame {
     private void btnKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKeluarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnKeluarActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+    
+    private void getJumlahPengguna() throws SQLException{
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+            pst = conn.prepareStatement("SELECT COUNT(*) AS jumlah_pengguna FROM akun");
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()){
+                int jumlah = rs.getInt("jumlah_pengguna");
+                lbJmlAkun.setText(String.valueOf(jumlah));
+        
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (SQLException e){
+            JOptionPane.showMessageDialog(null, "Error loading data: " + e.getMessage());
         }
-        //</editor-fold>
+    }
+    
+    private void getJumlahReservasi(){
+        try {
+            pst = conn.prepareStatement("SELECT COUNT(*) AS jumlah_reservasi FROM reservation");
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()){
+                int jumlah = rs.getInt("jumlah_reservasi");
+                lbJmlRsv.setText(String.valueOf(jumlah));
+        
+            }
+        } catch (SQLException e){
+            JOptionPane.showMessageDialog(null, "Error loading data: " + e.getMessage());
+        }
+    }
+    
+    public static void main(String args[]) {
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
-                new AdminMenu().setVisible(true);
+                try {
+                    new AdminMenu().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(AdminMenu.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
