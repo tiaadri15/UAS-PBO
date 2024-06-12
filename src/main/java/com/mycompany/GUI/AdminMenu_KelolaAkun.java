@@ -9,7 +9,6 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class AdminMenu_KelolaAkun extends javax.swing.JFrame {
-    private String user;
     public  Integer id_akun;
     public String first_name, last_name, email, room_type, phone, address, city, formattedCheckIn, formattedCheckOut;
     public Integer adult, children, rsv;
