@@ -271,9 +271,7 @@ public class AdminMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBerandaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBerandaMouseClicked
-        dispose();
-        UserMenu UM = new UserMenu(id_akun, user);
-        UM.setVisible(true);
+
     }//GEN-LAST:event_btnBerandaMouseClicked
 
     private void btnDataAkunMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDataAkunMouseClicked

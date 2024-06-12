@@ -547,7 +547,9 @@ public class UserMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReservasiMouseClicked
 
     private void btnRiwayatRsvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRiwayatRsvActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        UserMenu_RiwayatReservasi UMRR = new UserMenu_RiwayatReservasi(id_akun, user);
+        UMRR.setVisible(true);
     }//GEN-LAST:event_btnRiwayatRsvActionPerformed
 
     private void btnRiwayatRsvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRiwayatRsvMouseClicked

@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -206,7 +208,10 @@ public class UserMenu_RiwayatReservasi extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBerandaMouseClicked
 
     private void btnKamarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKamarMouseClicked
-        // TODO add your handling code here:
+        dispose();
+        
+        UserMenu_Kamar UMK = new UserMenu_Kamar(id_akun, user);
+        UMK.setVisible(true);
     }//GEN-LAST:event_btnKamarMouseClicked
 
     private void btnRiwayatRsvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRiwayatRsvMouseClicked
@@ -230,7 +235,14 @@ public class UserMenu_RiwayatReservasi extends javax.swing.JFrame {
     }//GEN-LAST:event_btnKeluarActionPerformed
 
     private void btnReservasiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReservasiMouseClicked
-
+        try {
+            this.setVisible(false);
+            HotelReservation HR = new HotelReservation(id_akun, user, first_name, last_name, email, room_type, phone,
+            address, city, formattedCheckIn,formattedCheckOut, adult, children, rsv_date);
+            HR.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(UserMenu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnReservasiMouseClicked
     
     // Metode untuk mengambil data dari basis data dan menampilkannya ada tabel

@@ -191,8 +191,13 @@ public class AdminMenu_RiwayatReservasi extends javax.swing.JFrame {
 
     private void btnBerandaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBerandaMouseClicked
         dispose();
-        UserMenu UM = new UserMenu(id_akun, user);
-        UM.setVisible(true);
+        AdminMenu AM;
+        try {
+            AM = new AdminMenu();
+            AM.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminMenu_KelolaAkun.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnBerandaMouseClicked
 
     private void btnDataAkunMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDataAkunMouseClicked
